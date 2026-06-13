@@ -1,5 +1,51 @@
-import { TASKS, TASK_CATEGORIES, type Task } from "../data/trip";
+import { TASKS, TASK_CATEGORIES, PACKING, type Task } from "../data/trip";
 import { Card, Chip } from "../components/ui";
+import { useLocalState } from "../lib/hooks";
+
+function PackingSection() {
+  const [checked, setChecked] = useLocalState<Record<string, boolean>>("vhq:packing", {});
+  const toggle = (k: string) => setChecked((p) => ({ ...p, [k]: !p[k] }));
+  return (
+    <section className="space-y-3">
+      <header className="px-1 text-white drop-shadow">
+        <h2 className="font-display text-2xl font-extrabold">מה לארוז? 🧳</h2>
+        <p className="text-sm font-medium opacity-95">צ׳ק-ליסט אישי — נשמר רק אצלכם</p>
+      </header>
+      {PACKING.map((g) => (
+        <Card key={g.label} className="p-4">
+          <div className="mb-2 font-display flex items-center gap-2 font-bold text-ink">
+            <span>{g.emoji}</span>
+            {g.label}
+          </div>
+          <div className="space-y-1">
+            {g.items.map((item) => {
+              const key = `${g.label}:${item}`;
+              const on = checked[key];
+              return (
+                <button
+                  key={key}
+                  onClick={() => toggle(key)}
+                  className="flex w-full items-center gap-3 rounded-2xl py-1.5 text-right active:scale-[0.99]"
+                >
+                  <span
+                    className={`grid h-7 w-7 shrink-0 place-items-center rounded-full border-[3px] transition ${
+                      on ? "border-mint bg-mint text-white" : "border-ink-soft/30"
+                    }`}
+                  >
+                    {on && <span className="text-sm leading-none">✓</span>}
+                  </span>
+                  <span className={`font-medium text-ink ${on ? "line-through opacity-50" : ""}`}>
+                    {item}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </Card>
+      ))}
+    </section>
+  );
+}
 
 export function Tasks({
   doneMap,
@@ -54,6 +100,8 @@ export function Tasks({
           </section>
         );
       })}
+
+      <PackingSection />
     </div>
   );
 }

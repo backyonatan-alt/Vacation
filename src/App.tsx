@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BottomNav, type TabId } from "./components/BottomNav";
 import { Dashboard } from "./pages/Dashboard";
 import { Tasks } from "./pages/Tasks";
+import { Games } from "./pages/Games";
 import { Bar } from "./pages/Bar";
 import { Area } from "./pages/Area";
 import { More } from "./pages/More";
@@ -41,6 +42,7 @@ export default function App() {
           <Dashboard person={person} doneMap={doneMap} onToggle={toggle} goTab={setTab} />
         )}
         {tab === "tasks" && <Tasks doneMap={doneMap} onToggle={toggle} />}
+        {tab === "games" && <Games />}
         {tab === "bar" && <Bar />}
         {tab === "area" && <Area />}
         {tab === "more" && (

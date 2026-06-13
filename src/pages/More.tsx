@@ -1,4 +1,4 @@
-import { LINKS, ROOMS, PEOPLE, TRIP } from "../data/trip";
+import { LINKS, ROOMS, PEOPLE, TRIP, CARS, PHOTO_ALBUM_URL } from "../data/trip";
 import { Card, Chip } from "../components/ui";
 
 export function More({
@@ -95,6 +95,64 @@ export function More({
           </Card>
         </div>
         <p className="px-1 text-xs text-white/80 drop-shadow">* החלוקה אקראית וניתנת לשינוי — תיאמו בקבוצה.</p>
+      </section>
+
+      {/* טרמפים ושיירה */}
+      <section className="space-y-2">
+        <h2 className="font-display px-1 text-xl font-bold text-white drop-shadow">טרמפים ושיירה 🚗</h2>
+        {CARS.map((c, i) => (
+          <Card key={i} className="flex items-center gap-3 p-4">
+            <span className="text-3xl">🚙</span>
+            <div className="min-w-0 flex-1">
+              <div className="font-display font-bold text-ink">{c.driver}</div>
+              <div className="text-sm text-ink-soft">
+                מ{c.from} · יוצאים {c.departure}
+              </div>
+            </div>
+            <Chip className={c.seatsFree > 0 ? "bg-mint/15 text-mint" : "bg-cream text-ink-soft"}>
+              {c.seatsFree > 0 ? `${c.seatsFree} מקומות פנויים` : "מלא"}
+            </Chip>
+          </Card>
+        ))}
+        <a
+          href="https://wa.me/?text=%D7%9E%D7%99%20%D7%A6%D7%A8%D7%99%D7%9A%2F%D7%9E%D7%A6%D7%99%D7%A2%20%D7%98%D7%A8%D7%9E%D7%A4%20%D7%9C%D7%91%D7%99%D7%AA%20%D7%90%D7%9C%D7%A4%D7%90%3F%20%F0%9F%9A%97"
+          target="_blank"
+          rel="noreferrer"
+          className="block rounded-2xl bg-white py-2.5 text-center font-display font-bold text-pool active:scale-[0.98]"
+        >
+          תאמו טרמפ בקבוצה 📲
+        </a>
+      </section>
+
+      {/* קיר התמונות */}
+      <section className="space-y-2">
+        <h2 className="font-display px-1 text-xl font-bold text-white drop-shadow">קיר התמונות 📸</h2>
+        <Card className="p-4">
+          {PHOTO_ALBUM_URL ? (
+            <a
+              href={PHOTO_ALBUM_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="block rounded-2xl bg-pool py-3 text-center font-display font-bold text-white active:scale-[0.98]"
+            >
+              לאלבום המשותף 🖼️
+            </a>
+          ) : (
+            <div className="text-center">
+              <div className="mb-2 flex justify-center gap-1 text-3xl">
+                <span>🏖️</span>
+                <span>🍹</span>
+                <span>👶</span>
+                <span>🌅</span>
+                <span>👑</span>
+              </div>
+              <p className="text-sm font-medium text-ink-soft">
+                פתחו אלבום Google Photos משותף והדביקו את הלינק ב-<code className="rounded bg-cream px-1">PHOTO_ALBUM_URL</code> —
+                וכאן יופיע כפתור לכל התמונות מהנופש.
+              </p>
+            </div>
+          )}
+        </Card>
       </section>
 
       {/* ביצה מוסתרת: נייר טואלט */}

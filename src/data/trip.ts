@@ -256,6 +256,61 @@ export const LINKS: LinkItem[] = [
   },
 ];
 
+// ---- משחקים וטבלת ניצחונות -----------------------------------------------
+// הזוגות שמתחרים. ערכו את השמות כרצונכם.
+export const TEAMS: { id: string; name: string }[] = [
+  { id: "t1", name: "תום וסתיו" },
+  { id: "t2", name: "נופר ומאליק" },
+  { id: "t3", name: "ענבר ויונתן" },
+  { id: "t4", name: "בר ובן זקן" },
+  { id: "t5", name: "אביב ונדב" },
+  { id: "t6", name: "אוהד ושיר" },
+  { id: "t7", name: "שובל ובן/בת הזוג" },
+];
+
+export const GAMES: { id: string; name: string; emoji: string }[] = [
+  { id: "alias", name: "אליאס", emoji: "🗣️" },
+  { id: "hitster", name: "היטסטר", emoji: "🎵" },
+  { id: "codenames", name: "שם קוד", emoji: "🕵️" },
+  { id: "social", name: "משחק חברתי", emoji: "🎭" },
+  { id: "other", name: "אחר", emoji: "🎲" },
+];
+
+// ---- לוח זמנים ליומן (קבצי ICS) ------------------------------------------
+export type TripEvent = {
+  id: string;
+  title: string;
+  startISO: string;
+  durationMin: number;
+  desc?: string;
+  location?: string;
+};
+export const EVENTS: TripEvent[] = [
+  { id: "pack", title: "🧳 לארוז להכל!", startISO: "2026-06-17T20:00:00+03:00", durationMin: 30, desc: "תזכורת לארוז ערב לפני" },
+  { id: "depart", title: "🏖️ יוצאים לבית אלפא", startISO: "2026-06-18T13:00:00+03:00", durationMin: 60, desc: "צ׳ק-אין מ-15:00", location: "בית אלפא, עמק המעיינות" },
+  { id: "checkin", title: "🔑 צ׳ק-אין בית אלפא", startISO: "2026-06-18T15:00:00+03:00", durationMin: 60, location: "בית אלפא, עמק המעיינות" },
+  { id: "bbq", title: "🔥 על האש", startISO: "2026-06-19T18:00:00+03:00", durationMin: 180 },
+  { id: "checkout", title: "👋 צ׳ק-אאוט", startISO: "2026-06-20T14:00:00+03:00", durationMin: 30, desc: "עד 15:00 בשבת" },
+];
+
+// ---- טרמפים ושיירה (תבנית — עדכנו את הנהגים והמקומות) ---------------------
+export type Car = { driver: string; from: string; seatsFree: number; departure: string };
+export const CARS: Car[] = [
+  { driver: "נדב ואביב", from: "המרכז", seatsFree: 0, departure: "חמישי בבוקר" },
+  { driver: "מלאו כאן 🙂", from: "—", seatsFree: 2, departure: "—" },
+];
+
+// ---- מה לארוז (צ׳ק-ליסט אישי, נשמר אצלכם במכשיר) -------------------------
+export const PACKING: { label: string; emoji: string; items: string[] }[] = [
+  { label: "בריכה ושמש", emoji: "🏊", items: ["בגדי ים", "מגבות (גם לסחנה)", "כפכפים", "קרם הגנה", "כובע ומשקפי שמש"] },
+  { label: "ילדים ותינוקות", emoji: "👶", items: ["חיתולים ומגבונים", "בקבוקים/אוכל", "עגלה", "כובע לילד", "צעצועי בריכה"] },
+  { label: "כללי", emoji: "🧴", items: ["פיג'מה ובגדים", "כלי רחצה", "תרופות אישיות", "מטען וכבל", "רמקול בלוטות'"] },
+  { label: "לנופש הרציני", emoji: "🍹", items: ["מה שאתם מביאים (ראו משימות)", "משחק קופסה אם סומנתם", "מצב רוח טוב 👑"] },
+];
+
+// ---- קיר התמונות (הדביקו לינק לאלבום משותף) -------------------------------
+export const PHOTO_ALBUM_URL = ""; // הדביקו כאן לינק ל-Google Photos / אלבום משותף
+
 // ---- ביצים מוסתרות / בדיחות פנימיות --------------------------------------
 export const QUOTES = [
   "טראמפ קיפל את המלחמה לא בגלל המונדיאל אלא בגלל הנופש הרציני 👑",

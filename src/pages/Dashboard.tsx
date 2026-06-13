@@ -1,6 +1,7 @@
 import { TRIP, KITCHEN_NOTE, QUOTES, TASKS, type Task } from "../data/trip";
 import { useCountdown, useWeather, weatherEmoji } from "../lib/hooks";
 import { Card } from "../components/ui";
+import { Reminders } from "../components/Reminders";
 import type { TabId } from "../components/BottomNav";
 
 function Countdown() {
@@ -142,6 +143,9 @@ export function Dashboard({
           לרשימת המשימות ✅
         </button>
       </Card>
+
+      {/* תזכורות ליומן */}
+      <Reminders />
 
       {/* המשימות שלי */}
       {person && (
