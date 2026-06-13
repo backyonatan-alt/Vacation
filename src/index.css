@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+/* ===== Pool Party Pop theme tokens ===== */
+@theme {
+  --font-display: "Fredoka", "Heebo", system-ui, sans-serif;
+  --font-sans: "Heebo", system-ui, sans-serif;
+
+  --color-sun: #ffd166;
+  --color-pool: #22c9d2;
+  --color-aperol: #ff9f43;
+  --color-melon: #ff5f5f;
+  --color-mint: #10b981;
+  --color-grape: #7c5cff;
+  --color-ink: #28384f;
+  --color-ink-soft: #6b7c93;
+  --color-cream: #fff8ef;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  /* sunny sky backdrop behind the phone-width app */
+  background:
+    radial-gradient(120% 60% at 50% 0%, #ffe39a 0%, #ffd166 22%, #41d4dc 70%, #22c9d2 100%) fixed;
+  -webkit-tap-highlight-color: transparent;
+}
+
+* {
+  -webkit-text-size-adjust: 100%;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* hide scrollbars on the horizontal weather/chips rails */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* gentle entrance + idle animations */
+@keyframes floaty {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(6deg); }
+}
+.animate-floaty { animation: floaty 4s ease-in-out infinite; }
+
+@keyframes pop-in {
+  0% { opacity: 0; transform: translateY(10px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-pop-in { animation: pop-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-7deg); }
+  75% { transform: rotate(7deg); }
+}
+.animate-wiggle { animation: wiggle 0.5s ease-in-out; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-floaty, .animate-pop-in, .animate-wiggle { animation: none; }
+}
