@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { LINKS, ROOMS, PEOPLE, TRIP, CARS, PHOTO_ALBUM_URL, PHOTOS } from "../data/trip";
+import { LINKS, ROOMS, PEOPLE, TRIP, CARS } from "../data/trip";
 import { Card, Chip } from "../components/ui";
 
 export function More({
@@ -13,7 +12,6 @@ export function More({
   twoPly: boolean;
   setTwoPly: (v: boolean | ((p: boolean) => boolean)) => void;
 }) {
-  const [lightbox, setLightbox] = useState<number | null>(null);
   return (
     <div className="space-y-5">
       <header className="px-1 pt-1 text-white drop-shadow">
@@ -125,84 +123,6 @@ export function More({
           תאמו טרמפ בקבוצה 📲
         </a>
       </section>
-
-      {/* קיר התמונות */}
-      <section className="space-y-2">
-        <h2 className="font-display px-1 text-xl font-bold text-white drop-shadow">קיר התמונות 📸</h2>
-        <Card className="p-4">
-          {PHOTOS.length > 0 ? (
-            <div className="grid grid-cols-2 gap-2">
-              {PHOTOS.map((photo, i) => (
-                <button
-                  key={photo.src}
-                  onClick={() => setLightbox(i)}
-                  className="group relative aspect-square overflow-hidden rounded-2xl active:scale-[0.98]"
-                  aria-label={`הגדל תמונה: ${photo.caption}`}
-                >
-                  <img
-                    src={photo.src}
-                    alt={photo.caption}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition group-active:brightness-90"
-                  />
-                  <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-1.5 text-right text-xs font-bold text-white">
-                    {photo.caption}
-                  </span>
-                </button>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center">
-              <div className="mb-2 flex justify-center gap-1 text-3xl">
-                <span>🏖️</span>
-                <span>🍹</span>
-                <span>👶</span>
-                <span>🌅</span>
-                <span>👑</span>
-              </div>
-              <p className="text-sm font-medium text-ink-soft">
-                עוד אין תמונות — הוסיפו קבצים ב-<code className="rounded bg-cream px-1">src/assets/photos</code> ושורה ב-
-                <code className="rounded bg-cream px-1">PHOTOS</code>.
-              </p>
-            </div>
-          )}
-          {PHOTO_ALBUM_URL ? (
-            <a
-              href={PHOTO_ALBUM_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-3 block rounded-2xl bg-pool py-3 text-center font-display font-bold text-white active:scale-[0.98]"
-            >
-              לאלבום המלא 🖼️
-            </a>
-          ) : null}
-        </Card>
-      </section>
-
-      {/* תצוגת תמונה מוגדלת */}
-      {lightbox !== null ? (
-        <div
-          onClick={() => setLightbox(null)}
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/85 p-4"
-          role="dialog"
-          aria-modal="true"
-        >
-          <img
-            src={PHOTOS[lightbox].src}
-            alt={PHOTOS[lightbox].caption}
-            className="max-h-[80vh] max-w-full rounded-2xl object-contain"
-          />
-          <p className="mt-3 font-display text-lg font-bold text-white drop-shadow">
-            {PHOTOS[lightbox].caption}
-          </p>
-          <button
-            onClick={() => setLightbox(null)}
-            className="mt-4 rounded-full bg-white/90 px-6 py-2 font-display font-bold text-ink active:scale-[0.97]"
-          >
-            סגירה ✕
-          </button>
-        </div>
-      ) : null}
 
       {/* ביצה מוסתרת: נייר טואלט */}
       <Card className="flex items-center justify-between p-4">

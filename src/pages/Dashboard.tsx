@@ -2,6 +2,7 @@ import { TRIP, KITCHEN_NOTE, QUOTES, TASKS, type Task } from "../data/trip";
 import { useCountdown, useWeather, weatherEmoji } from "../lib/hooks";
 import { Card } from "../components/ui";
 import { Reminders } from "../components/Reminders";
+import { PhotoWall } from "../components/PhotoWall";
 import type { TabId } from "../components/BottomNav";
 
 function Countdown() {
@@ -146,6 +147,9 @@ export function Dashboard({
 
       {/* תזכורות ליומן */}
       <Reminders />
+
+      {/* קיר התמונות */}
+      <PhotoWall />
 
       {/* המשימות שלי */}
       {person && (
