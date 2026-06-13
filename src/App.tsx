@@ -5,6 +5,7 @@ import { Tasks } from "./pages/Tasks";
 import { Games } from "./pages/Games";
 import { Bar } from "./pages/Bar";
 import { Area } from "./pages/Area";
+import { Stats } from "./pages/Stats";
 import { More } from "./pages/More";
 import { useLocalState } from "./lib/hooks";
 import { celebrate, bigCelebrate } from "./lib/fx";
@@ -45,6 +46,7 @@ export default function App() {
         {tab === "games" && <Games />}
         {tab === "bar" && <Bar />}
         {tab === "area" && <Area />}
+        {tab === "stats" && <Stats />}
         {tab === "more" && (
           <More person={person} setPerson={setPerson} twoPly={twoPly} setTwoPly={setTwoPly} />
         )}
