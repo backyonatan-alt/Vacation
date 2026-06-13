@@ -308,7 +308,21 @@ export const PACKING: { label: string; emoji: string; items: string[] }[] = [
   { label: "לנופש הרציני", emoji: "🍹", items: ["מה שאתם מביאים (ראו משימות)", "משחק קופסה אם סומנתם", "מצב רוח טוב 👑"] },
 ];
 
-// ---- קיר התמונות (הדביקו לינק לאלבום משותף) -------------------------------
+// ---- קיר התמונות --------------------------------------------------------
+// תמונות מהחבר'ה. רוצים להוסיף? שימו קובץ ב-src/assets/photos והוסיפו שורה כאן.
+import balconyFlags from "../assets/photos/balcony-flags.jpg";
+import purimParade from "../assets/photos/purim-parade.jpg";
+import poolParty from "../assets/photos/pool-party.jpg";
+import desertCamp from "../assets/photos/desert-camp.jpg";
+
+export const PHOTOS: { src: string; caption: string }[] = [
+  { src: balconyFlags, caption: "החבר'ה במרפסת 🇮🇱" },
+  { src: poolParty, caption: "מסיבת בריכה 🍹" },
+  { src: purimParade, caption: "פורים בשדרות 🎩" },
+  { src: desertCamp, caption: "טיול במדבר 🏜️" },
+];
+
+// אופציונלי: לינק לאלבום מלא ב-Google Photos. ריק = לא מוצג.
 export const PHOTO_ALBUM_URL = ""; // הדביקו כאן לינק ל-Google Photos / אלבום משותף
 
 // ---- ביצים מוסתרות / בדיחות פנימיות --------------------------------------
