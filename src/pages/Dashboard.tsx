@@ -150,15 +150,15 @@ export function Dashboard({
 
       {/* רכילות הקבוצה — טיזר לעמוד הסטטיסטיקות */}
       <button onClick={() => goTab("stats")} className="block w-full text-right active:scale-[0.99]">
-        <Card tint="bg-melon/10" className="p-4">
+        <Card tint="bg-gradient-to-br from-melon to-aperol" className="p-4 text-white">
           <div className="mb-1.5 flex items-center justify-between">
-            <span className="font-display text-lg font-bold text-ink">רכילות הקבוצה 📊</span>
-            <span className="text-xs font-bold text-pool">לכל הסטטיסטיקות ←</span>
+            <span className="font-display text-lg font-bold">רכילות הקבוצה 📊</span>
+            <span className="text-xs font-bold text-white/90">לכל הסטטיסטיקות ←</span>
           </div>
-          <p className="text-sm font-medium leading-relaxed text-ink-soft">
-            👑 מלכת הקבוצה: <span className="font-bold text-ink">{CHAT_STATS.ranking[0].name}</span> עם{" "}
+          <p className="text-sm font-medium leading-relaxed text-white/95">
+            👑 מלכת הקבוצה: <span className="font-bold">{CHAT_STATS.ranking[0].name}</span> עם{" "}
             {CHAT_STATS.ranking[0].count} הודעות · 🌙 ההודעה הכי מאוחרת: 04:42 לפנות בוקר —
-            <span className="font-bold text-ink"> "נגמר האפרול"</span> 🍹
+            <span className="font-bold"> "נגמר האפרול"</span> 🍹
           </p>
         </Card>
       </button>
