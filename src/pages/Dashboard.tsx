@@ -1,4 +1,4 @@
-import { TRIP, KITCHEN_NOTE, QUOTES, TASKS, type Task } from "../data/trip";
+import { TRIP, KITCHEN_NOTE, QUOTES, TASKS, CHAT_STATS, type Task } from "../data/trip";
 import { useCountdown, useWeather, weatherEmoji } from "../lib/hooks";
 import { Card } from "../components/ui";
 import { Reminders } from "../components/Reminders";
@@ -147,6 +147,21 @@ export function Dashboard({
 
       {/* תזכורות ליומן */}
       <Reminders />
+
+      {/* רכילות הקבוצה — טיזר לעמוד הסטטיסטיקות */}
+      <button onClick={() => goTab("stats")} className="block w-full text-right active:scale-[0.99]">
+        <Card tint="bg-melon/10" className="p-4">
+          <div className="mb-1.5 flex items-center justify-between">
+            <span className="font-display text-lg font-bold text-ink">רכילות הקבוצה 📊</span>
+            <span className="text-xs font-bold text-pool">לכל הסטטיסטיקות ←</span>
+          </div>
+          <p className="text-sm font-medium leading-relaxed text-ink-soft">
+            👑 מלכת הקבוצה: <span className="font-bold text-ink">{CHAT_STATS.ranking[0].name}</span> עם{" "}
+            {CHAT_STATS.ranking[0].count} הודעות · 🌙 ההודעה הכי מאוחרת: 04:42 לפנות בוקר —
+            <span className="font-bold text-ink"> "נגמר האפרול"</span> 🍹
+          </p>
+        </Card>
+      </button>
 
       {/* קיר התמונות */}
       <PhotoWall />
