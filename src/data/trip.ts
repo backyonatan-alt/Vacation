@@ -31,19 +31,19 @@ export const KITCHEN_NOTE =
 
 // ---- אנשים (לבחירת \"מי אני\" בדף הבית) -------------------------------------
 export const PEOPLE = [
-  "נופר", "תום", "סתיו", "בר", "שיר", "אביב", "נדב", "אוהד",
-  "ענבר", "יונתן", "שובל", "דן", "אלון",
+  "נופר", "מלכא", "תום", "סתיו", "בר", "שובל", "שיר", "אביב", "נדב",
+  "אוהד", "ענבר", "יונתן", "שירלי", "אלון", "דן",
 ];
 
 // ---- חדרים (קומה עליונה / תחתונה) ----------------------------------------
 export type Room = { who: string; floor: "up" | "down"; kids?: boolean };
 export const ROOMS: Room[] = [
-  { who: "סתיו ותום", floor: "up" },
-  { who: "מאליק ונופר", floor: "up" },
+  { who: "תום וסתיו", floor: "up" },
+  { who: "נופר ומלכא", floor: "up" },
   { who: "ענבר ויונתן", floor: "up" },
   { who: "בר ושובל", floor: "up" },
-  { who: "אביב, נדב + נאיה", floor: "down", kids: true },
-  { who: "שיש + ילדים", floor: "down", kids: true },
+  { who: "אביב ונדב", floor: "down", kids: true },
+  { who: "שירלי ואלון", floor: "down", kids: true },
   { who: "אוהד ושיר", floor: "down", kids: true },
 ];
 
@@ -71,8 +71,8 @@ export const TASKS: Task[] = [
   { id: "fri-bbq-meat", emoji: "🥩", title: "בשרים לעל האש — קנייה מיפו", who: "דן", cat: "food" },
   { id: "fri-fish", emoji: "🐟", title: "דגים: 2 דניס, 2 לברק, פילה סלמון", who: "דן (הוזמן)", cat: "food", done: true },
   { id: "bakery", emoji: "🥐", title: "מאפייה + גבינות טבעוניות", who: "נופר", cat: "food" },
-  { id: "soft-drinks", emoji: "🥤", title: "שתייה קלה + גבינת שמנת", who: "שיש", cat: "food" },
-  { id: "kids-food", emoji: "🧁", title: "חטיף לילדים (קאפקייקס/פנקייקים)", who: "אביב / שיש", cat: "food" },
+  { id: "soft-drinks", emoji: "🥤", title: "שתייה קלה + גבינת שמנת", who: "שירלי", cat: "food" },
+  { id: "kids-food", emoji: "🧁", title: "חטיף לילדים (קאפקייקס/פנקייקים)", who: "אביב / שירלי", cat: "food" },
 
   // ציוד וכלים
   { id: "bowls", emoji: "🥣", title: "2–3 קערות גדולות לסלטים/על האש", who: "מי מתנדב?", cat: "gear" },
@@ -260,7 +260,7 @@ export const LINKS: LinkItem[] = [
 // הזוגות שמתחרים. ערכו את השמות כרצונכם.
 export const TEAMS: { id: string; name: string }[] = [
   { id: "t1", name: "תום וסתיו" },
-  { id: "t2", name: "נופר ומאליק" },
+  { id: "t2", name: "נופר ומלכא" },
   { id: "t3", name: "ענבר ויונתן" },
   { id: "t4", name: "בר ושובל" },
   { id: "t5", name: "אביב ונדב" },
@@ -296,7 +296,7 @@ export const EVENTS: TripEvent[] = [
 // ---- טרמפים ושיירה (תבנית — עדכנו את הנהגים והמקומות) ---------------------
 export type Car = { driver: string; from: string; seatsFree: number; departure: string };
 export const CARS: Car[] = [
-  { driver: "נדב ואביב", from: "המרכז", seatsFree: 0, departure: "חמישי בבוקר" },
+  { driver: "אביב ונדב", from: "המרכז", seatsFree: 0, departure: "חמישי בבוקר" },
   { driver: "מלאו כאן 🙂", from: "—", seatsFree: 2, departure: "—" },
 ];
 
