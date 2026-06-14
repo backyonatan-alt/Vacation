@@ -41,7 +41,7 @@ export const ROOMS: Room[] = [
   { who: "סתיו ותום", floor: "up" },
   { who: "מאליק ונופר", floor: "up" },
   { who: "ענבר ויונתן", floor: "up" },
-  { who: "בר ובן זקן", floor: "up" },
+  { who: "בר ושובל", floor: "up" },
   { who: "אביב, נדב + נאיה", floor: "down", kids: true },
   { who: "שיש + ילדים", floor: "down", kids: true },
   { who: "אוהד ושיר", floor: "down", kids: true },
@@ -262,10 +262,10 @@ export const TEAMS: { id: string; name: string }[] = [
   { id: "t1", name: "תום וסתיו" },
   { id: "t2", name: "נופר ומאליק" },
   { id: "t3", name: "ענבר ויונתן" },
-  { id: "t4", name: "בר ובן זקן" },
+  { id: "t4", name: "בר ושובל" },
   { id: "t5", name: "אביב ונדב" },
   { id: "t6", name: "אוהד ושיר" },
-  { id: "t7", name: "שובל ובן/בת הזוג" },
+  { id: "t7", name: "שירלי ואלון" },
 ];
 
 export const GAMES: { id: string; name: string; emoji: string }[] = [
