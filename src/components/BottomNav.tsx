@@ -1,4 +1,4 @@
-export type TabId = "home" | "tasks" | "games" | "bar" | "area" | "more";
+export type TabId = "home" | "tasks" | "games" | "bar" | "area" | "stats" | "more";
 
 const TABS: { id: TabId; label: string; emoji: string }[] = [
   { id: "home", label: "בית", emoji: "🏖️" },
@@ -6,6 +6,7 @@ const TABS: { id: TabId; label: string; emoji: string }[] = [
   { id: "games", label: "טורניר", emoji: "🏆" },
   { id: "bar", label: "בר", emoji: "🍹" },
   { id: "area", label: "אזור", emoji: "🗺️" },
+  { id: "stats", label: "צ׳אט", emoji: "📊" },
   { id: "more", label: "עוד", emoji: "🔗" },
 ];
 
